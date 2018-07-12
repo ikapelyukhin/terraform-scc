@@ -34,18 +34,22 @@ func resourceSystem() *schema.Resource {
                               "identifier": {
                                 Type:     schema.TypeString,
                                 Required: true,
+                                ForceNew: true,
                               },
                               "version": {
                                 Type:     schema.TypeString,
                                 Required: true,
+                                ForceNew: true,
                               },
                               "arch": {
                                 Type:     schema.TypeString,
                                 Required: true,
+                                ForceNew: true,
                               },
                               "regcode": {
                                 Type:     schema.TypeString,
                                 Optional: true,
+                                ForceNew: true,
                               },
                               "service_name": {
                                 Type:     schema.TypeString,
