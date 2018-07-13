@@ -108,7 +108,7 @@ func resourceSystemCreate(d *schema.ResourceData, m interface{}) error {
         requestRegcode = productRegcode
     }
     
-    service, err := scc_client.RegisterProduct(credentials.Login, credentials.Password, "SLES", "12.3", "x86_64", requestRegcode)
+    service, err := scc_client.RegisterProduct(credentials.Login, credentials.Password, identifier, version, arch, requestRegcode)
     if (err != nil) {
       return err
     }
