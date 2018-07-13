@@ -1,0 +1,4 @@
+.terraform
+terraform-provider-scc
+terraform-provisioner-scc
+terraform.tfstate*
