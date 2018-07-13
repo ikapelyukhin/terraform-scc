@@ -1,0 +1,12 @@
+package: .
+import:
+- package: github.com/hashicorp/terraform
+  version: ^0.11.7
+  subpackages:
+  - communicator
+  - communicator/remote
+  - helper/schema
+  - plugin
+  - terraform
+- package: github.com/ikapelyukhin/go-scc-client
+- package: github.com/mitchellh/go-linereader

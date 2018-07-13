@@ -1,3 +1,7 @@
+# Terraform SCC plugin
+
+Provides a provider that registers products at SCC and a provisioner that sets up `zypper` services.
+
 ## Minimal example
 
 ```hcl
@@ -27,7 +31,7 @@ resource "null_resource" "test_resource" {
     password = "${scc_system.my_sles_server.password}"
     
     products = [
-      "${scc_system.sles_server.products[0]}",
+      "${scc_system.my_sles_server.products[0]}",
     ]
   }
 }
@@ -36,13 +40,15 @@ resource "null_resource" "test_resource" {
 ## Building
 
 1. Set up `$GOPATH`
-2. Install the dependencies (TBD)
+2. Install the dependencies: `glide install`
 3. Run `make`
 
 ## Caveats
 
-There seems to be an issue in Terraform when it comes to interpolating complex data structures (such as list of maps):
- * https://github.com/hashicorp/terraform/issues/7705
- * https://github.com/hashicorp/terraform/issues/10407
+1. Doesn't (yet) install product release RPM package for the extension products
+2. Doesn't supply any host information (such as hostname) during registration
+3. There seems to be an issue in Terraform when it comes to interpolating complex data structures (such as list of maps):
+   * https://github.com/hashicorp/terraform/issues/7705
+   * https://github.com/hashicorp/terraform/issues/10407
 
-This is why the provisioner receives one product at a time, in the ideal world should be as easy as `products = "${scc_system.sles_server.products}"`.
+  This is why the provisioner receives one product at a time, in the ideal world should be as easy as `products = "${scc_system.my_sles_server.products}"`.
